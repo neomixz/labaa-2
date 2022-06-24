@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labaa 2.2ReWrite", "labaa 2.2ReWrite.csproj", "{D7A36753-31BA-4A0F-96FC-622BF0FE1CB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7A36753-31BA-4A0F-96FC-622BF0FE1CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A36753-31BA-4A0F-96FC-622BF0FE1CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A36753-31BA-4A0F-96FC-622BF0FE1CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A36753-31BA-4A0F-96FC-622BF0FE1CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0AB9F57-9BDC-41C0-96A3-0CC0A52D3349}
+	EndGlobalSection
+EndGlobal

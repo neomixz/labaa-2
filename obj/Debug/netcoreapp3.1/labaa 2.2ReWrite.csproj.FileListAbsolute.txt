@@ -1,0 +1,14 @@
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.exe
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.deps.json
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.runtimeconfig.json
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.runtimeconfig.dev.json
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.dll
+D:\programing\labaa 2.2ReWrite\bin\Debug\netcoreapp3.1\labaa 2.2ReWrite.pdb
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.csproj.AssemblyReference.cache
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.GeneratedMSBuildEditorConfig.editorconfig
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.AssemblyInfoInputs.cache
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.AssemblyInfo.cs
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.csproj.CoreCompileInputs.cache
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.dll
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.pdb
+D:\programing\labaa 2.2ReWrite\obj\Debug\netcoreapp3.1\labaa 2.2ReWrite.genruntimeconfig.cache
