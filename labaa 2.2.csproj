@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>labaa_2._2ReWrite</RootNamespace>
+    <RootNamespace>labaa_2._2</RootNamespace>
   </PropertyGroup>
 
 </Project>

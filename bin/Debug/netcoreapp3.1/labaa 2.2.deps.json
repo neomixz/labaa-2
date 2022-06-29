@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "labaa 2.2ReWrite/1.0.0": {
+      "labaa 2.2/1.0.0": {
         "runtime": {
-          "labaa 2.2ReWrite.dll": {}
+          "labaa 2.2.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "labaa 2.2ReWrite/1.0.0": {
+    "labaa 2.2/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

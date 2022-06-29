@@ -1,27 +1,131 @@
 ﻿using System;
+using System.IO;
+using System.Text.Json;
 using System.Collections.Generic;
-using System.Text;
 
-namespace labaa_2._2ReWrite
+namespace labaa_2._2
 {
     class Triangle1
     {
-        public int Xa { get; set; }
-        public int Ya { get; set; }
-        public int Xb { get; set; }
-        public int Yb { get; set; }
-        public int Xc { get; set; }
-        public int Yc { get; set; }
+        int Xa, Xb, Xc, Ya, Yb, Yc;
+        double AB, BC, AC;
 
-        private int AB { get; set; }
-        private int BC { get; set; }
-        private int AC { get; set; }
+        string path = @"D:\programing\labaa 2.2\saving.json";
+        int EXIT;
 
-        public Triangle2 triangle2;
-
-        public void Coordinates()
+        public Triangle1(Triangle2 triangle2)
         {
-            Console.WriteLine("Введiть координати вершин трикутника 1: ");
+            do
+            {
+                try
+                {
+                    Menu(triangle2);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            while (EXIT != 3);
+
+        }
+
+        ///////////////////////////////////////////////////////
+        
+        void Menu(Triangle2 triangle2)
+        {
+            Console.Clear();
+            Console.WriteLine("1. Use saved DATA | 2. Change DATA | 3. Exit");
+            int a = int.Parse(Console.ReadLine());
+
+            switch (a)
+            {
+                case 1:
+                    Console.Clear();
+                    Json_Deserialize(triangle2);
+                    Triangles_Sides_Lenght(triangle2);
+                    All_Methods(triangle2);
+                    Json_Serialize(triangle2);
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.Clear();
+                    Coordinates_Writing(triangle2);
+                    Triangles_Sides_Lenght(triangle2);
+                    All_Methods(triangle2);
+                    Json_Serialize(triangle2);
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    EXIT = 3;
+                    break;
+            }
+        }
+
+        ///////////////////////////////////////////////////////
+        
+
+        void Coordinates_Writing(Triangle2 triangle2)
+        {
+            T1_Coordinates();           //координати трикутника 1
+            triangle2.T2_Coordinates(); //координати трикутника 2
+            Console.Clear();            
+        }
+        void Triangles_Sides_Lenght(Triangle2 triangle2)
+        {
+            T1_Sides_Lenght();           //довжини трикутника 1
+            triangle2.T2_Sides_Lenght(); //довжини трикутника 2
+
+            Console.WriteLine($"AB: {Math.Round(AB)}, BC: {Math.Round(BC)}, AC: {Math.Round(AC)}");
+            Console.WriteLine($"FQ: {triangle2.FQ}, QE: {triangle2.QE}, FE: {triangle2.FE}");
+            Console.WriteLine("\n");
+        }
+        void All_Methods(Triangle2 triangle2)
+        {
+            Rivnist(triangle2);
+            SP();
+            Heights();
+            Medians();
+            Bisectors();
+            InOutCircle();
+            Type();
+            Point_Turn();
+            Centre_Turn();
+        }
+        void Json_Serialize(Triangle2 triangle2)
+        {
+            int[] coordinates = { Xa, Xb, Xc, Ya, Yb, Yc, triangle2.Xf, triangle2.Xq, triangle2.Xe, triangle2.Yf, triangle2.Yq, triangle2.Ye };
+
+            string json_serialized = JsonSerializer.Serialize(coordinates);
+
+            string path = @"D:\programing\labaa 2.2\saving.json";
+
+            File.WriteAllText(path, json_serialized);
+        }
+        void Json_Deserialize(Triangle2 triangle2)
+        {
+            string json_file = File.ReadAllText(path);
+            int[] saved_coordinates = JsonSerializer.Deserialize<int[]>(json_file);
+            Xa = saved_coordinates[0];
+            Xb = saved_coordinates[1];
+            Xc = saved_coordinates[2];
+            Ya = saved_coordinates[3];
+            Yb = saved_coordinates[4];
+            Yc = saved_coordinates[5];
+            triangle2.Xf = saved_coordinates[6];
+            triangle2.Xq = saved_coordinates[7];
+            triangle2.Xe = saved_coordinates[8];
+            triangle2.Yf = saved_coordinates[9];
+            triangle2.Yq = saved_coordinates[10];
+            triangle2.Ye = saved_coordinates[11];
+        }
+
+        
+        ///////////////////////////////////////////////////////
+        
+        void T1_Coordinates()
+        {
+            Console.WriteLine("Уведiть координати вершин трикутника 1: ");
 
             Console.Write("A | x: ");
             Xa = int.Parse(Console.ReadLine());
@@ -42,151 +146,125 @@ namespace labaa_2._2ReWrite
             Console.Write("C | y: ");
             Yc = int.Parse(Console.ReadLine());
 
-            Console.Clear();
-        }
-        public void Lenght()
-        {
-            AB = Convert.ToInt32(Math.Round(Math.Sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb - Ya))));
-            BC = Convert.ToInt32(Math.Round(Math.Sqrt((Xc - Xb) * (Xc - Xb) + (Yc - Yb) * (Yc - Yb))));
-            AC = Convert.ToInt32(Math.Round(Math.Sqrt((Xc - Xa) * (Xc - Xa) + (Yc - Ya) * (Yc - Ya))));
-        }
-        public void GetInfo()
-        {
-            Console.WriteLine($"AB: {AB} BC: {BC} AC: {AC}");
-            Console.WriteLine();
+            Console.WriteLine("\n");
         }
 
-
-        public void ALL_METHODS()
+        void T1_Sides_Lenght()
         {
-            Rivnist();
-            SP();
-            Heights();
-            Medians();
-            Bisectors();
-            InOutCircle();
-            Type();
-            Point_Turn();
-            Centre_Turn();
+            AB = Math.Sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb - Ya));
+            BC = Math.Sqrt((Xc - Xb) * (Xc - Xb) + (Yc - Yb) * (Yc - Yb));
+            AC = Math.Sqrt((Xc - Xa) * (Xc - Xa) + (Yc - Ya) * (Yc - Ya));
         }
 
-        public void Rivnist() 
-        {
-            int[] Sides_T1 = { AB, BC, AC };
-            int[] Sides_T2 = { triangle2.FQ, triangle2.QE, triangle2.FE };
+        ///////////////////////////////////////////////////////
 
-            int[] used_sides = { 3, 3, 3 };
+        void Rivnist(Triangle2 triangle2)
+        {
+            double[] Sides_T1 = { AB, BC, AC };
+            double[] Sides_T2 = { triangle2.FQ, triangle2.QE, triangle2.FE };
+            var taken_place = new List<int>();
             int n = 0;
-            int m = 0;
 
-            for (int i = 0; i < Sides_T1.Length; i++) 
+            for (int i = 0; i < Sides_T1.Length; i++)
             {
-                for (int j = 0; j < Sides_T2.Length; j++) 
+                for (int j = 0; j < Sides_T2.Length; j++)
                 {
-                    if (Sides_T1[i] == Sides_T2[j] && i == 0)
+                    if (Sides_T1[i] == Sides_T2[j] && taken_place.Contains(j) == false)
                     {
                         n += 1;
-                        used_sides[m] = j;
-                        break;
+                        taken_place.Add(j);
                     }
-                    int check = 0;
-                    for (int t = 0; t < used_sides.Length - (used_sides.Length - i); t++) 
-                    {
-                        if (Sides_T1[i] == Sides_T2[j] && used_sides[t] != j)
-                        {
-                            n += 1;
-                            used_sides[m] = j;
-                            check = 1;
-                            break;
-                        }
-                    }
-                    if (check == 1)
-                        break;
                 }
             }
-            
-            if (n == 3)
-                Console.WriteLine("Triangles are equel!!");
-            else
-                Console.WriteLine("Triangles are not equel!!");
+
+            switch (n)
+            {
+                case 3:
+                    Console.WriteLine("Трикутники рiвнi!!");
+                    break;
+                default:
+                    Console.WriteLine("Трикутники не рiвнi!!");
+                    break;
+            }
         }
 
-       
-
-        private void SP()
+        void SP()
         {
             int S, P, p;
 
-            P = AB + BC + AC;
-            p = Convert.ToInt32(Math.Round((AB + BC + AC) / 2.0));
+            P = Convert.ToInt32(Math.Round(AB + BC + AC));
+            p = Convert.ToInt32(Math.Round((AB + BC + AC) / 2));
             S = Convert.ToInt32(Math.Round(Math.Sqrt(p * (p - AB) * (p - BC) * (p - AC))));
             Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.WriteLine($"THE PERIMETER OF TRIANGLES : {P}");
             Console.WriteLine($"THE AREA OF TRIANGLES : {S}");
         }
-        private void Heights()
+
+        void Heights()
         {
-            int p;
-            double S;
-            p = Convert.ToInt32(Math.Round((AB + BC + AC) / 2.0));
+            double S, p;
+            p = (AB + BC + AC) / 2;
             S = Math.Round(Math.Sqrt(p * (p - AB) * (p - BC) * (p - AC)));
 
             Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.WriteLine("ATITUDES' VALUES");
 
-            Console.WriteLine($"H(a) = {Math.Round((2.0 * S) / AB)}");
-            Console.WriteLine($"H(b) = {Math.Round((2.0 * S) / BC)}");
-            Console.WriteLine($"H(c) = {Math.Round((2.0 * S) / AC)}");
+            Console.WriteLine($"H(a) = {Math.Round((2 * S) / AB)}");
+            Console.WriteLine($"H(b) = {Math.Round((2 * S) / BC)}");
+            Console.WriteLine($"H(c) = {Math.Round((2 * S) / AC)}");
         }
-        private void Medians()
+
+        void Medians()
         {
             Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.WriteLine("MADIANS' VALUES");
 
-            Console.WriteLine($"M(a) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2.0 * BC * BC + 2.0 * AC * AC - AB * AB))}");
-            Console.WriteLine($"M(b) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2.0 * AB * AB + 2.0 * AC * AC - BC * BC))}");
-            Console.WriteLine($"M(c) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2.0 * AB * AB + 2.0 * BC * BC - AC * AC))}");
+            Console.WriteLine($"M(a) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2 * BC * BC + 2 * AC * AC - AB * AB))}");
+            Console.WriteLine($"M(b) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2 * AB * AB + 2 * AC * AC - BC * BC))}");
+            Console.WriteLine($"M(c) = {Math.Round(1.0 / 2.0 * Math.Sqrt(2 * AB * AB + 2 * BC * BC - AC * AC))}");
         }
-        private void Bisectors()
+
+        void Bisectors()
         {
             Console.WriteLine("\n");
             Console.WriteLine("\n");
             Console.WriteLine("BISECTORS' VALUES");
-            int p = Convert.ToInt32(Math.Round((AB + BC + AC) / 2.0));
+            double p = (AB + BC + AC) / 2;
 
             Console.WriteLine($"L(a) = {Math.Round(((2.0 * Math.Sqrt(BC * AC * p * (BC + AC - AB))) / BC + AC))}");
             Console.WriteLine($"L(b) = {Math.Round(((2.0 * Math.Sqrt(AB * AC * p * (AB + AC - BC)))) / AB + AC)}");
             Console.WriteLine($"L(c) = {Math.Round(((2.0 * Math.Sqrt(AB * BC * p * (AB + BC - AC)))) / AB + BC)}");
         }
-        private void InOutCircle()
+
+        void InOutCircle()
         {
             Console.WriteLine("\n");
             Console.WriteLine("\n");
-            double p;
-            int S;
+            double S, p;
             p = (AB + BC + AC) / 2;
-            S = Convert.ToInt32(Math.Round(Math.Sqrt(p * (p - AB) * (p - BC) * (p - AC))));
+            S = Math.Round(Math.Sqrt(p * (p - AB) * (p - BC) * (p - AC)));
 
             Console.Write("INCIRCLE'S RADIUS : ");
             Console.WriteLine(Math.Round(S / p));
 
             Console.Write("EXCIRCLE'S RADIUS : ");
-            Console.WriteLine(Math.Round((AB * BC * AC) / (4.0 * S)));
+            Console.WriteLine(Math.Round((AB * BC * AC) / (4 * S)));
         }
-        private void Type() //масиви
+
+        void Type()
         {
             Console.WriteLine("\n");
             Console.WriteLine("\n");
 
-            int cos_alpha = Convert.ToInt32(Math.Round(Math.Acos((BC * BC + AC * AC - AB * AB) / (2.0 * BC * AC)) * (180.0 / Math.PI)));
-            int cos_beta = Convert.ToInt32(Math.Round(Math.Acos((AB * AB + AC * AC - BC * BC) / (2.0* AB * AC)) * (180.0 / Math.PI)));
-            int cos_gamma = Convert.ToInt32(Math.Round(Math.Acos((AB * AB + BC * BC - AC * AC) / (2.0 * AB * BC)) * (180.0 / Math.PI)));
+            int cos_alpha = Convert.ToInt32(Math.Round(Math.Acos((BC * BC + AC * AC - AB * AB) / (2 * BC * AC)) * (180 / Math.PI)));
+            int cos_beta = Convert.ToInt32(Math.Round(Math.Acos((AB * AB + AC * AC - BC * BC) / (2 * AB * AC)) * (180 / Math.PI)));
+            int cos_gamma = Convert.ToInt32(Math.Round(Math.Acos((AB * AB + BC * BC - AC * AC) / (2 * AB * BC)) * (180 / Math.PI)));
 
             int[] degrees = { cos_alpha, cos_beta, cos_gamma };
-            int[] sides = { AB, BC, AC };
+            double[] sides = { AB, BC, AC };
 
             int enter = 0;
 
@@ -229,7 +307,8 @@ namespace labaa_2._2ReWrite
 
 
         }
-        private void Point_Turn()
+
+        void Point_Turn()
         {
             Console.WriteLine("\n");
             Console.WriteLine("\n");
@@ -251,7 +330,7 @@ namespace labaa_2._2ReWrite
             int new_Yc = Convert.ToInt32((Xc - Xa) * Math.Sin(ϕ) - (Yc - Ya) * Math.Cos(ϕ));
             Console.WriteLine($"Новi координати трикутника: A({Xa};{Ya}), B({new_Xb + Xa};{new_Yb + Ya}), C({new_Xc + Xa};{new_Yc + Ya})");
         }
-        private void Centre_Turn()
+        void Centre_Turn()
         {
             Console.WriteLine("\n");
 
@@ -288,5 +367,7 @@ namespace labaa_2._2ReWrite
             }
 
         }
+
+        ///////////////////////////////////////////////////////
     }
 }

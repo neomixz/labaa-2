@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\programing\\labaa 2.2ReWrite\\labaa 2.2ReWrite.csproj": {}
+    "D:\\programing\\labaa 2.2\\labaa 2.2.csproj": {}
   },
   "projects": {
-    "D:\\programing\\labaa 2.2ReWrite\\labaa 2.2ReWrite.csproj": {
+    "D:\\programing\\labaa 2.2\\labaa 2.2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\programing\\labaa 2.2ReWrite\\labaa 2.2ReWrite.csproj",
-        "projectName": "labaa 2.2ReWrite",
-        "projectPath": "D:\\programing\\labaa 2.2ReWrite\\labaa 2.2ReWrite.csproj",
+        "projectUniqueName": "D:\\programing\\labaa 2.2\\labaa 2.2.csproj",
+        "projectName": "labaa 2.2",
+        "projectPath": "D:\\programing\\labaa 2.2\\labaa 2.2.csproj",
         "packagesPath": "C:\\Users\\Albert\\.nuget\\packages\\",
-        "outputPath": "D:\\programing\\labaa 2.2ReWrite\\obj\\",
+        "outputPath": "D:\\programing\\labaa 2.2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Albert\\AppData\\Roaming\\NuGet\\NuGet.Config",

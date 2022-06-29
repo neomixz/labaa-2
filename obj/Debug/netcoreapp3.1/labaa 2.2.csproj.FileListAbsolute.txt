@@ -1,0 +1,14 @@
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.exe
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.deps.json
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.runtimeconfig.json
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.runtimeconfig.dev.json
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.dll
+D:\programing\labaa 2.2\bin\Debug\netcoreapp3.1\labaa 2.2.pdb
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.csproj.AssemblyReference.cache
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.GeneratedMSBuildEditorConfig.editorconfig
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.AssemblyInfoInputs.cache
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.AssemblyInfo.cs
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.csproj.CoreCompileInputs.cache
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.dll
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.pdb
+D:\programing\labaa 2.2\obj\Debug\netcoreapp3.1\labaa 2.2.genruntimeconfig.cache
